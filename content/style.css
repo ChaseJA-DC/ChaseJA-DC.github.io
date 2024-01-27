@@ -1,0 +1,148 @@
+html, body {
+    height: 100%;
+}
+.body {
+    padding-top: 100px;
+}
+.navbar-main {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.2px);
+    -webkit-backdrop-filter: blur(3.2px);
+    /*Keep the navbar at the top of the viewport*/
+    font-family: "Trebuchet MS", Helvetica, sans-serif; /* Change font type */
+    font-size: 12px;;
+    /*Bring the navbar infront of all eleemnts*/
+    z-index: 9999;
+}
+.navbar-main .navbar-brand {
+    font-size: 18px; /* Increase font size for the brand */
+    font-weight: normal; /* Make the font bold */
+    color: #fff; /* Change font color to white */
+}
+
+.navbar-main .nav-link {
+    color: #fff; /* Change font color to white */
+    transition: all 0.3s ease; /* Add a smooth transition effect */
+}
+
+.navbar-main .nav-link:hover {
+    transform: scale(1.4); /* Grow the link on hover */
+    transform: translateY(-5px);
+    /* Apply glow*/
+    text-shadow: 0 0 10px rgba(255,255,255,1);
+    /* apply animation to glow*/
+    animation: glow 0.1s ease-in-out infinite alternate;
+
+}
+
+.navbar-main .nav-link.active {
+    font-weight: bold; /* Make the active link bold */
+    color: darkgrey;
+}
+.navbar-main .navbar-nav .nav-item.active .nav-link {
+    font-weight: bold; /* Make the active link bold */
+}
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+}
+.container {
+    width: 80%; /* Set container width to 80% */
+    height: 100%; /* Set container height to 100% */
+    box-sizing: border-box; /* Include border in width and height calculation */
+    color: #fff;
+
+}
+body {
+
+    padding-top: 3.9em;
+    /*Create a video background using a youtube URL*/
+
+}
+main {
+
+}
+
+p {
+    padding-top: 4em;
+    width: 40%;
+}
+header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+
+
+header .container {
+    position: relative;
+    z-index: 2;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
+}
+h1 {
+    padding-top: 10%;
+    text-shadow: 2px 2px black;
+}
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+}
+#text {
+    opacity: 0;
+    transition: 1s;
+}
+
+#text.fade-in {
+    opacity: 1;
+    transition: 1s;
+}
+
+
+#text.hide {
+    display: none;
+}
+.fade-out {
+    animation: fadeOut 0.5s;
+    opacity: 0;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+    opacity: 1;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
