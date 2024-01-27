@@ -40,7 +40,10 @@ html, body {
 
 .navbar-main .nav-link.active {
     font-weight: bold; /* Make the active link bold */
-    color: darkgrey;
+    color: #5c5c5c;
+    text-underline: #f6f9fc;
+    /*Create text underline when active*/
+    text-decoration: underline;
 }
 .navbar-main .navbar-nav .nav-item.active .nav-link {
     font-weight: bold; /* Make the active link bold */
@@ -59,14 +62,6 @@ header {
     height: 100%; /* Set container height to 100% */
     box-sizing: border-box; /* Include border in width and height calculation */
     color: #fff;
-
-
-}
-body {
-
-    padding-top: 3.9em;
-    /*Create a video background using a youtube URL*/
-
 }
 main {
 
@@ -240,4 +235,181 @@ h1 {
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.glass {
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.2px);
+    -webkit-backdrop-filter: blur(3.2px);
+    padding: 50px;
+}
+#portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project-card {
+    width: 500px;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around; /* This will space out the cards evenly */
+    padding: 1rem; /* Adjust the value as needed */
+}
+.project-body {
+    padding-top: 5em;
+}
+#project-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding-top: 20em;
+    /* Other styles */
+}
+.project-card:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); /* Add a glow effect */
+}
+
+#loadMore {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.fade-out {
+    animation: fadeOut 0.5s;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.LoadMoreBtn{
+    background-color: transparent;
+    font-size: 80px;
+    color: white;
+    align-content: center;
+    margin: 0 auto;
+    text-shadow: 2px 2px black;
+    padding-top: 3em;
+    border: 2px solid white;
+    border-style: wave;
+    border-radius: 10px;
+}
+.icon {
+    font-size: 30px;
+}
+.accordion_container {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    padding: 0;
+}
+
+.accordion_container .container {
+    min-height: 100px;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+}
+
+.accordion_container .container .accordion {
+    border: 2px outset #fff8;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.accordion_container .container .accordion.active {
+    box-shadow: 0 4px 15px #0005;
+}
+
+
+.accordion_container .container .accordion .header {
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    background-image: linear-gradient(45deg, #ffffffa8, #ffffff9f);
+    border: none;
+    padding: 15px;
+    color: #444;
+    font-size: 18px;
+    border-bottom: 2px solid #fff3;
+    box-shadow: 0 2px 5px #0005;
+    cursor: pointer;
+    position: relative;
+    backdrop-filter: blur(15px);
+}
+
+.accordion_container .container .accordion.active .header,
+.accordion_container .container .accordion .header:hover {
+    background-image: linear-gradient(-45deg, #ffffffa8, #ffffff9f);
+}
+
+.accordion_container .container .accordion .header .icon {
+    display: inline-block;
+    width: 15px;
+    height: 2px;
+    background-color: #4d4d4dd5;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.accordion_container .container .accordion .header .icon::before {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    position: absolute;
+    transform: rotatez(90deg);
+}
+
+.accordion_container .container .accordion.active .header .icon {
+    transform: rotateZ(45deg) translateY(-50%);
+    background-color: #eb2f00;
+}
+
+.accordion_container .container .accordion .body {
+    background-image: linear-gradient(45deg, #ffffff96, #ffffff4f);
+    padding: 0 15px;
+    backdrop-filter: blur(15px);
+    color: #161616;
+    font-size: 18px;
+    line-height: 1.5;
+    height: 0px;
+    overflow: hidden;
+    transition: 0.5s cubic-bezier(0.42, 0.59, 0.49, 1.29);
+}
+
+.accordion_container .container .accordion.active .body {
+    padding: 15px;
+}
+
+
 
