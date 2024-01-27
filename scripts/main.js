@@ -1,7 +1,10 @@
 "use strict";
-
-//Create a function that hides the current element
-
+//Created by Chase Allen - 100897566
+//Created on 2024/27/01
+/**
+ * Function Name: textSlider
+ * Description: Toggles the visibility of a hidden social element and animates it.
+ */
 function textSlider() {
     var hiddenSocial = document.getElementById("hidden-social");
     var hiddenSocialInfo = document.querySelector(".hidden-social-info");
@@ -27,8 +30,115 @@ function textSlider() {
     }
 }
 
+/**
+ * Function Name: createFooterNav
+ * Description: Creates and appends a footer navigation element to the body.
+ */
+(function createFooterNav() {
+    document.addEventListener('DOMContentLoaded', () => {
+        // Create the footer nav element
+        const footerNav = document.createElement('nav');
+        footerNav.className = 'footer-nav';
+        footerNav.innerHTML = `
+        <ul class="nav justify-content-center glass2 ">
+            <li class="nav-item">
+                <a class="nav-link" href="privacypolicy.html">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tos.html">Terms of Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+        </ul>
+    `;
 
-(function () {
+        // Append the footer nav to the body
+        document.body.appendChild(footerNav);
+    });
+
+    /**
+     * Function Name: updateNavbar
+     * Description: Updates the navbar by adding a 'Careers' link and changing 'Blog' to 'News'.
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+        // Locate the navbar
+        const navbar = document.querySelector('.navbar-nav');
+
+        // Create the 'Careers' link element
+        const careersLink = document.createElement('li');
+        careersLink.className = 'nav-item';
+        careersLink.innerHTML = '<a class="nav-link" href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>';
+
+        // Append the 'Careers' link to the navbar
+        navbar.appendChild(careersLink);
+
+        // Find and update the 'Blog' link to 'News'
+        const blogLink = navbar.querySelector('a[href="blog.html"]');
+        if (blogLink) {
+            blogLink.innerHTML = '<i class="fa-solid fa-newspaper"></i> News';
+        }
+    });
+
+    /**
+     * Function Name: toggleReadMore
+     * Description: Toggles the visibility of additional content when clicking "Read More" links.
+     */
+    $(document).ready(function () {
+        $(".read-more-btn").click(function () {
+            $(this).siblings(".additional-content").toggle();
+        });
+    });
+    /// Get all "Read More" links
+    const readMoreLinks = document.querySelectorAll('.read-more');
+
+    // Add click event listener to each link
+    readMoreLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Toggle the visibility of the full article content
+            const article = link.parentElement;
+            const fullContent = article.querySelector('.full-content');
+            fullContent.classList.toggle('visible');
+
+            // Change the link text based on visibility
+            if (fullContent.classList.contains('visible')) {
+                link.textContent = 'Read Less';
+            } else {
+                link.textContent = 'Read More';
+            }
+        });
+    });
+    /**
+     * Function Name: toggleModal
+     * Description: Toggles the display of modal elements.
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+        // Open modal
+        document.querySelectorAll('[data-toggle="modal"]').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const modalId = trigger.getAttribute('data-target');
+                const modal = document.querySelector(modalId);
+                modal.style.display = "flex";
+            });
+        });
+
+        // Close modal
+        document.querySelectorAll('.close-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.style.display = "none";
+            });
+        });
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        };
+    });
 
     let accordion_btns  = document.querySelectorAll('.accordion_container .accordion .header'),
         accordion_bodys = document.querySelectorAll('.accordion_container .accordion .body');
@@ -120,14 +230,24 @@ function textSlider() {
         return card;
     }
 
+    /**
+     * Function Name: loadProjects
+     * Description: Loads a set number of projects onto a web page.
+     */
     function loadProjects() {
+        // Get a reference to the "portfolio" HTML element
         const portfolio = document.getElementById("portfolio");
+
+        // Calculate the total number of projects to load on this call
         const totalLoad = Math.min(currentProjects + projectsPerLoad, allProjects.length);
 
+        // Loop through the projects to be loaded
         for (; currentProjects < totalLoad; currentProjects++) {
+            // Create a project card element for the current project and append it to the "portfolio"
             portfolio.appendChild(createProjectCard(allProjects[currentProjects], currentProjects));
         }
     }
+
 
     document.getElementById("loadMore").addEventListener("click", loadProjects);
 
@@ -201,14 +321,15 @@ function textSlider() {
         }
     }
 
+    // Main function to determine which page to display based on document title
 
     function Start(){
         console.log("App Started");
+        // Switch statement to call the appropriate display function
 
         switch(document.title){
             case "Home":
                 DisplayHomePage();
-                myFunction();
                 break;
             case "Our Products":
                 DisplayProductPage();
@@ -226,6 +347,7 @@ function textSlider() {
                 DisplayContactUsPage();
                 break;
         }
+
 
 
     }
