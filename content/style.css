@@ -60,6 +60,7 @@ header {
     box-sizing: border-box; /* Include border in width and height calculation */
     color: #fff;
 
+
 }
 body {
 
@@ -146,3 +147,97 @@ h1 {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+#hidden-social-container {
+    width: 2000px;
+    height: 1000px;
+    position: relative;
+    top: 20px;
+    left: 200px;
+    overflow: hidden;
+}
+
+#hidden-social, #hidden-social-info {
+    width: 100%;
+    display: none;
+}
+
+#hidden-social {
+    animation: 1s slide-right;
+}
+
+#hidden-social-info {
+    animation: 1s slide-left;
+}
+
+@keyframes slide-right {
+    from { margin-left: -100%; }
+    to { margin-left: 0%; }
+}
+
+@keyframes slide-left {
+    from { margin-left: 0%; }
+    to { margin-left: -100%; }
+}
+.ExploreBtn{
+    background-color: transparent;
+    border: none    ;
+    font-size: 80px;
+    color: white;
+    align-content: center;
+    margin: 0 auto;
+    text-shadow: 2px 2px black;
+    padding-top: 3em;
+}
+
+
+
+
+/* test is applied to a div */
+.test {
+    background-color: black;
+    height: 100px;
+    width: 100px;
+    margin: auto
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+.hidden-social-info {
+    position: relative;
+    bottom: -100%; /* Start off-screen */
+    height: 10%;
+    left: 0;
+    right: 0;
+    transition: bottom 1s ease; /* Animation effect */
+    z-index: 10; /* Ensure it's above other elements */
+    width: 100%; /* Ensure it spans the full width */
+    color: white;
+    display: flex; /* Use flexbox to center contents */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    justify-content: center; /* Center children vertically if there's height */
+    text-align: center; /* Center text for inline or inline-block elements */
+
+}
+.card {
+    /* Add shadows to create the "card" effect */
+
+    transition: 0.3s;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3.2px);
+    -webkit-backdrop-filter: blur(3.2px);
+    width: 60%;
+    height: 1000px;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+

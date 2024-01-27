@@ -55,9 +55,20 @@
 
 
 <main class="container container-lg text-center">
-    <button id="ExploreBtn" class="btn btn-outline-light btn-lg">Explore</button>
-    <p class="AboutUsSection"></p>
+    <div >
+        <button class="ExploreBtn" onclick="textSlider()">
+            <i class="fa-solid fa-house"></i><br>
+            <h1 class="display-5">Enter</h1>
+        </button>
+
+        <div id="hidden-social"  style="display:none;">
+            <span class="display-1"><h1 class="display-1">Harmony Hub</h1></span>
+        </div>
+    </div>
 </main>
+<div class="hidden-social-info">
+
+</div>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./scripts/app.js"></script>

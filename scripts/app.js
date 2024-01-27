@@ -1,5 +1,35 @@
 "use strict";
 
+//Create a function that hides the current element
+
+function textSlider() {
+    var hiddenSocial = document.getElementById("hidden-social");
+    var hiddenSocialInfo = document.querySelector(".hidden-social-info");
+    var exploreButton = document.querySelector(".ExploreBtn");
+
+    // Check if hidden-social is already visible
+    if (hiddenSocial.style.display === "none") {
+        hiddenSocial.style.display = "block";
+        hiddenSocial.style.animation = "1s slide-right forwards";
+        exploreButton.style.display = "none";
+
+        // Slide in hidden-social-info
+        hiddenSocialInfo.style.bottom = "50%"; // Adjust as needed to position correctly
+    } else {
+        hiddenSocial.style.animation = "1s slide-left forwards";
+        setTimeout(() => {
+            hiddenSocial.style.display = "none";
+            exploreButton.style.display = "block";
+
+            // Slide out hidden-social-info
+            hiddenSocialInfo.style.bottom = "-100%";
+        }, 1000);
+    }
+}
+
+
+
+
 
 (function () {
     //Create a function for click events with variables for different buttons and logic
@@ -80,6 +110,7 @@
         switch(document.title){
             case "Home":
                 DisplayHomePage();
+                myFunction();
                 break;
             case "Our Products":
                 DisplayProductPage();
