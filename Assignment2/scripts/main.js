@@ -122,22 +122,6 @@ function loadEvents() {
         }
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        // Locate the navbar
-        const navbar = document.querySelector('.navbar-nav');
-
-        // Create the logout link element
-        const logoutLink = document.createElement('li');
-        logoutLink.className = 'nav-item';
-        logoutLink.innerHTML = '<a class="nav-link" href="#"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>';
-
-        // Add click event listener to logout link
-        logoutLink.addEventListener('click', () => {
-            // Clear user session
-            sessionStorage.clear();
-            // Redirect to login page after logout
-            location.href = "login.html";
-        });
 
         // Append the logout link to the navbar
         navbar.appendChild(logoutLink);
